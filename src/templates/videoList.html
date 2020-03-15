@@ -1,7 +1,7 @@
 <ul ng-controller="VideoList" class="video-list">
 
-
-  <video-list-entry ng-repeat='data in dummyData' data='data'>
+  <video-list-entry ng-repeat='data in dummyData' data='data'
+    ng-click='onClick(data.id.videoId,data.snippet.title,data.snippet.description)'>
     <h5><em>videoListEntry</em> component goes here</h5>
   </video-list-entry>
 

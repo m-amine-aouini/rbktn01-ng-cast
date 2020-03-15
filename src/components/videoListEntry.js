@@ -1,7 +1,11 @@
 angular.module('video-player')
+  .controller('video-list-entry', function ($scope) {
+    // console.log($ctrl)
+  })
 
   .component('videoListEntry', {
-    // TODO
+    controller: 'video-list-entry',
+
     bindings: {
       data: '<'
 
