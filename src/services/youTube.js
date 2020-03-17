@@ -1,10 +1,14 @@
-angular.module('video-player')
-  .service('youTube', function ($http, $log) {
+angular.module('video-player', [])
+  .service('youTube', function ($http, $log, $window) {
     this.search = function (searchCategory, cb) {
-      $http.get("https://www.googleapis.com/youtube/v3", {
-        q: searchCategory,
-        maxResults: 5,
-        type: 'video'
+      $http.get("https://www.googleapis.com/youtube/v3/search", {
+        params: {
+          part: 'snippet',
+          q: searchCategory,
+          maxResults: 5,
+          type: 'video',
+          key: YOUTUBE_API_KEY
+        }
 
       })
         .then((res) => {
@@ -15,3 +19,5 @@ angular.module('video-player')
         });
     };
   });
+
+// angular.injector().annotate('youTube')

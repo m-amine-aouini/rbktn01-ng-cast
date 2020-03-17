@@ -1,8 +1,12 @@
 
 
 angular.module('video-player')
-  .controller('VideoList', function ($scope) {
-    $scope.dummyData = exampleVideoData;
+  .controller('VideoList', function ($scope, $window) {
+    if (!!$window.videos) {
+      $scope.dummyData = $window.videos;
+    }
+    // console.log($scope.dummyData, $window.videos)
+
     $scope.onClick = function (src, title, description) {
       let videoT = document.getElementById('videoTarget');
       let titleT = document.getElementById('titleTarget');

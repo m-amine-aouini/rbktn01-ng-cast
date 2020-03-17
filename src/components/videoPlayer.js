@@ -1,9 +1,9 @@
 angular.module('video-player')
-  .controller('video-Player', function ($scope) {
-    $scope.data = exampleVideoData[0];
-    $scope.videoLink = "https://www.youtube.com/embed/" + $scope.data.id.videoId;
-    $scope.title = $scope.data.snippet.title;
-    $scope.description = $scope.data.snippet.description;
+  .controller('video-Player', function ($scope, $window) {
+    let data = $window.videos[0];
+    $scope.videoLink = 'https://www.youtube.com/embed/' + data.id.videoId;
+    $scope.title = data.snippet.title;
+    $scope.description = data.snippet.description;
   })
 
   .component('videoPlayer', {
